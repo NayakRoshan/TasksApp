@@ -2,8 +2,11 @@ package com.example.mytaskapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +16,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Log.d("main", "in onCreate");
+
+        Button clickMeButton = (Button) findViewById(R.id.clickMe);
+        clickMeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent callSecondActivity = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(callSecondActivity);
+            }
+        });
     }
 
     @Override
