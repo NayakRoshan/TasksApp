@@ -62,4 +62,15 @@ public class FirstFragment extends Fragment {
         Log.d("FirstFragment", "on Attach");
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Log.d("FirstFragment", "on Activity Created");
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.d("FirstFragment", "on View Created");
+    }
 }
