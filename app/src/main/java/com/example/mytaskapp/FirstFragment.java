@@ -73,4 +73,16 @@ public class FirstFragment extends Fragment {
         super.onDetach();
         Log.d("FirstFragment", "on Detach");
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Log.d("SecondFragment", "on Activity Created");
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.d("SecondFragment", "on View Created");
+    }
 }
