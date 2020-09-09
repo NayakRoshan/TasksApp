@@ -62,4 +62,15 @@ public class SecondFragment extends Fragment {
         Log.d("SecondFragment", "on Attach");
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d("SecondFragment", "on Destroy View");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d("SecondFragment", "on Detach");
+    }
 }
