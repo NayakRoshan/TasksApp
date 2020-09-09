@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         userEmail = (EditText) findViewById(R.id.email);
         userPassword = (EditText) findViewById(R.id.password);
 
-        Button submit = (Button) findViewById(R.id.submit);
+        Button submit = (Button) findViewById(R.id.login);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
