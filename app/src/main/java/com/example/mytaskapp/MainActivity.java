@@ -16,15 +16,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Log.d("main", "in onCreate");
-
-        Button clickMeButton = (Button) findViewById(R.id.clickMe);
-        clickMeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent callSecondActivity = new Intent(MainActivity.this, SecondActivity.class);
-                startActivity(callSecondActivity);
-            }
-        });
     }
 
     @Override
