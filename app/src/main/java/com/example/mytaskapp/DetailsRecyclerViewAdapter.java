@@ -13,12 +13,12 @@ import com.example.mytaskapp.entity.PersonEntity;
 
 import java.util.List;
 
-public class DetailsListView extends RecyclerView.Adapter<DetailsListView.DetailsViewHolder> {
+public class DetailsRecyclerViewAdapter extends RecyclerView.Adapter<DetailsRecyclerViewAdapter.DetailsViewHolder> {
 
     private Context context;
     private List<PersonEntity> listViewData;
 
-    public DetailsListView(Context context, List<PersonEntity> details) {
+    public DetailsRecyclerViewAdapter(Context context, List<PersonEntity> details) {
         this.context = context;
         this.listViewData = details;
     }

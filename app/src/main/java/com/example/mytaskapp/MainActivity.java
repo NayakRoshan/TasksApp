@@ -1,18 +1,10 @@
 package com.example.mytaskapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 import com.example.mytaskapp.entity.PersonEntity;
 import com.example.mytaskapp.utils.AgeCompareUtils;
@@ -49,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Comparator<PersonEntity> ageCompare = new AgeCompareUtils();
         Collections.sort(details, ageCompare);
 
-        DetailsListView listViewAdapter = new DetailsListView(this, details);
+        DetailsRecyclerViewAdapter listViewAdapter = new DetailsRecyclerViewAdapter(this, details);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listViewAdapter);
