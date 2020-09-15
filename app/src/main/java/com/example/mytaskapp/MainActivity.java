@@ -10,81 +10,52 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText userEmail;
+    private EditText userPassword;
+    private final String CORRECT_EMAIL = "abc80@gmail.com";
+    private final String CORRECT_PASSWORD = "1234";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("main", "in onCreate");
+        userEmail = (EditText) findViewById(R.id.email);
+        userPassword = (EditText) findViewById(R.id.password);
 
-        final FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction addFragmentOne = fragmentManager.beginTransaction();
-        Fragment fragment1 = new FirstFragment();
-        addFragmentOne.add(R.id.fragment, fragment1);
-        addFragmentOne.commit();
-
-
-        Log.d("test1", "in onCreate");
-
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button submit = (Button) findViewById(R.id.login);
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction toggleFragments = fragmentManager.beginTransaction();
+                String enteredEmail = userEmail.getText().toString();
+                String enteredPassword = userPassword.getText().toString();
 
-                Fragment fragment = fragmentManager.findFragmentById(R.id.fragment);
-
-                if (fragment instanceof FirstFragment) {
-                    Fragment fragment1 = new SecondFragment();
-                    toggleFragments.replace(R.id.fragment, fragment1);
-                    toggleFragments.addToBackStack(null);
+                String message;
+                if (!enteredEmail.equals(CORRECT_EMAIL) && !enteredPassword.equals(CORRECT_PASSWORD)) {
+                    message = "Invalid Email and Password.";
+                    MessageDialog messageDialog = new MessageDialog(MainActivity.this, message);
+                    messageDialog.show(getSupportFragmentManager(), "Message Dialog");
+                } else if (!enteredEmail.equals(CORRECT_EMAIL)) {
+                    message = "Invalid Email.";
+                    MessageDialog messageDialog = new MessageDialog(MainActivity.this, message);
+                    messageDialog.show(getSupportFragmentManager(), "Message Dialog");
+                } else if (!enteredPassword.equals(CORRECT_PASSWORD)) {
+                    message = "Invalid Password.";
+                    MessageDialog messageDialog = new MessageDialog(MainActivity.this, message);
+                    messageDialog.show(getSupportFragmentManager(), "Message Dialog");
                 } else {
-                    Fragment fragment1 = new FirstFragment();
-                    toggleFragments.replace(R.id.fragment, fragment1);
-                    toggleFragments.addToBackStack(null);
+                    message = "Login Successful.";
+                    MessageDialog messageDialog = new MessageDialog(MainActivity.this, message);
+                    messageDialog.show(getSupportFragmentManager(), "Message Dialog");
                 }
-                toggleFragments.commit();
+                userEmail.setText("");
+                userPassword.setText("");
             }
         });
-
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d("main", "in onStart");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d("main", "on Resume");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d("main", "on stop");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d("main", "on pause");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d("main", "on destroy");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d("main", "on restart");
-    }
 }
