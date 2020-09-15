@@ -7,4 +7,13 @@
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
+    <string name="correct_email">abc80@gmail.com</string>
+    <string name="correct_password">1234</string>
+    <string name="wrong_mail_and_password">Invalid Email and Password</string>
+    <string name="wrong_email">Invalid Email</string>
+    <string name="wrong_password">Invalid Password</string>
+    <string name="success_message">Login Successful</string>
+    <string name="dialog_tag">Message Dialog</string>
+    <string name="positive_button">OK</string>
+    <string name="dialog_box_title">Alert Message</string>
 </resources>
