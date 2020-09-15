@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List<PersonEntity> details = new ArrayList<PersonEntity>();
+      List<PersonEntity> details = new ArrayList<PersonEntity>();
 
         //add persons. static details.
         PersonEntity person1 = new PersonEntity(1, "Aaron Finch", "13423", "23");
@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listViewAdapter);
-
     }
 
 }
