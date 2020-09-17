@@ -16,8 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText userEmail;
     private EditText userPassword;
-    private final String CORRECT_EMAIL = "abc80@gmail.com";
-    private final String CORRECT_PASSWORD = "1234";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,23 +32,18 @@ public class MainActivity extends AppCompatActivity {
                 String enteredEmail = userEmail.getText().toString();
                 String enteredPassword = userPassword.getText().toString();
 
-                String message;
-                if (!enteredEmail.equals(CORRECT_EMAIL) && !enteredPassword.equals(CORRECT_PASSWORD)) {
-                    message = "Invalid Email and Password.";
-                    MessageDialog messageDialog = new MessageDialog(MainActivity.this, message);
-                    messageDialog.show(getSupportFragmentManager(), "Message Dialog");
-                } else if (!enteredEmail.equals(CORRECT_EMAIL)) {
-                    message = "Invalid Email.";
-                    MessageDialog messageDialog = new MessageDialog(MainActivity.this, message);
-                    messageDialog.show(getSupportFragmentManager(), "Message Dialog");
-                } else if (!enteredPassword.equals(CORRECT_PASSWORD)) {
-                    message = "Invalid Password.";
-                    MessageDialog messageDialog = new MessageDialog(MainActivity.this, message);
-                    messageDialog.show(getSupportFragmentManager(), "Message Dialog");
+                if (!enteredEmail.equals(getString(R.string.correct_email)) && !enteredPassword.equals(getString(R.string.correct_password))) {
+                    MessageDialog messageDialog = new MessageDialog(MainActivity.this, getString(R.string.wrong_mail_and_password));
+                    messageDialog.show(getSupportFragmentManager(), getString(R.string.dialog_tag));
+                } else if (!enteredEmail.equals(getString(R.string.correct_email))) {
+                    MessageDialog messageDialog = new MessageDialog(MainActivity.this, getString(R.string.wrong_email));
+                    messageDialog.show(getSupportFragmentManager(), getString(R.string.dialog_tag));
+                } else if (!enteredPassword.equals(getString(R.string.correct_password))) {
+                    MessageDialog messageDialog = new MessageDialog(MainActivity.this, getString(R.string.wrong_password));
+                    messageDialog.show(getSupportFragmentManager(), getString(R.string.dialog_tag));
                 } else {
-                    message = "Login Successful.";
-                    MessageDialog messageDialog = new MessageDialog(MainActivity.this, message);
-                    messageDialog.show(getSupportFragmentManager(), "Message Dialog");
+                    MessageDialog messageDialog = new MessageDialog(MainActivity.this, getString(R.string.success_message));
+                    messageDialog.show(getSupportFragmentManager(), getString(R.string.dialog_tag));
                 }
                 userEmail.setText("");
                 userPassword.setText("");
